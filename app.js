@@ -13,15 +13,18 @@ const port = 3000;
 // information using ejs
 app.set('view engine', 'ejs')
 
+// use express layout
 app.use(expressLayouts);
+// set default layout for all routing
 app.set('layout', 'layouts/main');
 
 // create a write stream (in append mode)
 // var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
  
-// setup the logger
+// use morgan mode dev
 app.use(morgan('dev'))
 
+// use express static for public folder
 app.use(express.static('public'))
 
 app.use((req, res, next) => {
